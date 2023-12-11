@@ -57,7 +57,6 @@ const Header = () => {
             <div className={styles.navLink}>Learn</div>
           </div>
         </nav>
-
       </div>
     </div>
   )
