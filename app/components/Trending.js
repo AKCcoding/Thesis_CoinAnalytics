@@ -5,7 +5,7 @@ import usdt from "../assets/png/usdt.png"
 import eth from "../assets/png/eth.png"
 import gainers from "../assets/png/gainers.png"
 import greed from "../assets/png/greed.png"
-import TrendingCard from "./trendingCard"
+import TrendingCard from "./TrendingCard"
 
 const styles = {
     trendingWrapper: `mx-auto max-w-screen-2xl`,
