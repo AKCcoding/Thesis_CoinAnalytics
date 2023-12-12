@@ -4,7 +4,6 @@ import Search from '../assets/svg/search'
 
 const styles = {
   navLink: `text-white flex mx-[10px]`,
-  badge: `rounded-full bg-blue-600 h-1 w-1 absolute bottom-5 right-0 top-1 ring-4`,
   navItem: `relative mr-1 cursor-pointer hover:opacity-60`,
   nav: `flex justify-center items-center gap-[20px]`,
   header: `bg-[#18181B] text-white h-20 flex gap-[100px] w-full p-[30px]`,
@@ -19,7 +18,7 @@ const Header = () => {
     /* logo here patrick*/
     <div className={styles.header}>
       <Image
-        alt='PATRICK BORAT'
+        alt='PATRICK BORATATAT'
         src=''
         width={220}
         height={220}
@@ -45,12 +44,10 @@ const Header = () => {
 
           <div className={styles.navItem}>
             <div className={styles.navLink}>Trade</div>
-            <div className={styles.badge} />
           </div>
 
           <div className={styles.navItem}>
             <div className={styles.navLink}>Coin Analytics</div>
-            <div className={styles.badge} />
           </div>
 
           <div className={styles.navItem}>

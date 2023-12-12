@@ -1,6 +1,6 @@
 import  type { NextPage } from 'next'
-import Header from './/components/Header'
-import Trending from './/components/Trending'
+import Header from './components/Header'
+import Trending from './components/Trending'
 
 const Home: NextPage = () => {
   return (
