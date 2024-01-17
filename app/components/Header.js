@@ -18,12 +18,11 @@ const Header = () => {
     /* logo here patrick*/
     <div className={styles.header}>
       <Image
-        alt='PATRICK BORATATAT'
+        alt='jars icon'
         src=''
-        width={220}
-        height={220}
+        width={30}
+        height={30}
       />
-
         <div className='flex items-center'>
           {/* <ConnectButton /> */}
           <div className={styles.inputContainer}>
