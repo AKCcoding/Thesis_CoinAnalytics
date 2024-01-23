@@ -102,10 +102,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@next/env@14.0.4":
-  version "14.0.4"
-  resolved "https://registry.npmjs.org/@next/env/-/env-14.0.4.tgz"
-  integrity sha512-irQnbMLbUNQpP1wcE5NstJtbuA/69kRfzBrpAD7Gsn8zm/CY6YQYc3HQBz8QPxwISG26tIm5afvvVbu508oBeQ==
+"@next/env@14.1.0":
+  version "14.1.0"
+  resolved "https://registry.npmjs.org/@next/env/-/env-14.1.0.tgz"
+  integrity sha512-Py8zIo+02ht82brwwhTg36iogzFqGLPXlRGKQw5s+qP/kMNc4MAyDeEwBKDijk6zTIbegEgu8Qy7C1LboslQAw==
 
 "@next/eslint-plugin-next@14.0.4":
   version "14.0.4"
@@ -114,10 +114,10 @@
   dependencies:
     glob "7.1.7"
 
-"@next/swc-win32-x64-msvc@14.0.4":
-  version "14.0.4"
-  resolved "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-14.0.4.tgz"
-  integrity sha512-yEh2+R8qDlDCjxVpzOTEpBLQTEFAcP2A8fUFLaWNap9GitYKkKv1//y2S6XY6zsR4rCOPRpU7plYDR+az2n30A==
+"@next/swc-win32-x64-msvc@14.1.0":
+  version "14.1.0"
+  resolved "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-14.1.0.tgz"
+  integrity sha512-9WEbVRRAqJ3YFVqEZIxUqkiO8l1nool1LmNxygr5HWF8AcSYsEpneUDhmjUVJEzO2A04+oPtZdombzzPPkTtgg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -483,10 +483,10 @@ camelcase-css@^2.0.1:
   resolved "https://registry.npmjs.org/camelcase-css/-/camelcase-css-2.0.1.tgz"
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
-caniuse-lite@^1.0.30001406, caniuse-lite@^1.0.30001538, caniuse-lite@^1.0.30001565:
-  version "1.0.30001568"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001568.tgz"
-  integrity sha512-vSUkH84HontZJ88MiNrOau1EBrCqEQYgkC5gIySiDlpsm8sGVrhU7Kx4V6h0tnqaHzIHZv08HlJIwPbL4XL9+A==
+caniuse-lite@^1.0.30001538, caniuse-lite@^1.0.30001565, caniuse-lite@^1.0.30001579:
+  version "1.0.30001579"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001579.tgz"
+  integrity sha512-u5AUVkixruKHJjw/pj9wISlcMpgFWzSrczLZbrqBSxukQixmg0SJ5sZTpvaFvxU0HoQKd4yoyAogyrAz9pzJnA==
 
 chalk@^4.0.0:
   version "4.1.2"
@@ -1111,11 +1111,6 @@ glob-parent@~5.1.2:
   dependencies:
     is-glob "^4.0.1"
 
-glob-to-regexp@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.npmjs.org/glob-to-regexp/-/glob-to-regexp-0.4.1.tgz"
-  integrity sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==
-
 glob@^7.1.3, glob@7.1.7:
   version "7.1.7"
   resolved "https://registry.npmjs.org/glob/-/glob-7.1.7.tgz"
@@ -1173,7 +1168,7 @@ gopd@^1.0.1:
   dependencies:
     get-intrinsic "^1.1.3"
 
-graceful-fs@^4.1.2, graceful-fs@^4.2.11, graceful-fs@^4.2.4:
+graceful-fs@^4.2.11, graceful-fs@^4.2.4:
   version "4.2.11"
   resolved "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
@@ -1622,29 +1617,28 @@ natural-compare@^1.4.0:
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-next@14.0.4:
-  version "14.0.4"
-  resolved "https://registry.npmjs.org/next/-/next-14.0.4.tgz"
-  integrity sha512-qbwypnM7327SadwFtxXnQdGiKpkuhaRLE2uq62/nRul9cj9KhQ5LhHmlziTNqUidZotw/Q1I9OjirBROdUJNgA==
+next@^14.1.0:
+  version "14.1.0"
+  resolved "https://registry.npmjs.org/next/-/next-14.1.0.tgz"
+  integrity sha512-wlzrsbfeSU48YQBjZhDzOwhWhGsy+uQycR8bHAOt1LY1bn3zZEcDyHQOEoN3aWzQ8LHCAJ1nqrWCc9XF2+O45Q==
   dependencies:
-    "@next/env" "14.0.4"
+    "@next/env" "14.1.0"
     "@swc/helpers" "0.5.2"
     busboy "1.6.0"
-    caniuse-lite "^1.0.30001406"
+    caniuse-lite "^1.0.30001579"
     graceful-fs "^4.2.11"
     postcss "8.4.31"
     styled-jsx "5.1.1"
-    watchpack "2.4.0"
   optionalDependencies:
-    "@next/swc-darwin-arm64" "14.0.4"
-    "@next/swc-darwin-x64" "14.0.4"
-    "@next/swc-linux-arm64-gnu" "14.0.4"
-    "@next/swc-linux-arm64-musl" "14.0.4"
-    "@next/swc-linux-x64-gnu" "14.0.4"
-    "@next/swc-linux-x64-musl" "14.0.4"
-    "@next/swc-win32-arm64-msvc" "14.0.4"
-    "@next/swc-win32-ia32-msvc" "14.0.4"
-    "@next/swc-win32-x64-msvc" "14.0.4"
+    "@next/swc-darwin-arm64" "14.1.0"
+    "@next/swc-darwin-x64" "14.1.0"
+    "@next/swc-linux-arm64-gnu" "14.1.0"
+    "@next/swc-linux-arm64-musl" "14.1.0"
+    "@next/swc-linux-x64-gnu" "14.1.0"
+    "@next/swc-linux-x64-musl" "14.1.0"
+    "@next/swc-win32-arm64-msvc" "14.1.0"
+    "@next/swc-win32-ia32-msvc" "14.1.0"
+    "@next/swc-win32-x64-msvc" "14.1.0"
 
 node-releases@^2.0.14:
   version "2.0.14"
@@ -2379,14 +2373,6 @@ util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
-
-watchpack@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.npmjs.org/watchpack/-/watchpack-2.4.0.tgz"
-  integrity sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg==
-  dependencies:
-    glob-to-regexp "^0.4.1"
-    graceful-fs "^4.1.2"
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"

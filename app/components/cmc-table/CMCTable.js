@@ -1,15 +1,15 @@
+"use client"
+
 import React, {useState, useContext, useEffect, useCallback} from 'react'
 import btc from "../../assets/png/btc.png"
-import {CoinMarketContext} from "../../context/context"
+import {CoinMarketContext} from "@/context/context"
+import CMCtableHeader from './CMCtableHeader'
+import CMCtableRow from './CMCtableRow'
 
 const CMCTable = () => {
 
   let { getTopTenCoins } = useContext(CoinMarketContext)
   let [coinData, setCoinData] = useState(null)
-
-  useEffect(() => {
-    setData()
-  }, [])
 
   const setData = useCallback(async () => {
     try {
@@ -18,17 +18,54 @@ const CMCTable = () => {
 
       for (let i = 0; i < apiResponse.length; i++) {
         const element = apiResponse[i]
-        if (element.cmc_rank <= 10) filteredResponse.push(element)
+        if (element.cmc_rank <= 100) filteredResponse.push(element)
       }
-
       setCoinData(filteredResponse)
     } catch (e) {
-      console.log(e.message)
+      console.log(e.message)  
     }
   }, [getTopTenCoins])
 
+  console.log(coinData)
+
+  useEffect(() => {
+    setData()
+  },[setData])
+
   return (
-    <div>CmcTable</div>
+    <div className='text-white font-bold'>
+    <div className='mx-auto max-w-screen-2xl'>
+      <table className='w-full'>
+        <CMCtableHeader />
+
+        {coinData && coinData ? (
+          coinData.map((coin, index) => {
+            return (
+              <CMCtableRow
+                key={index}
+                starNum={coin.cmc_rank}
+                coinName={coin.name}
+                coinSymbol={coin.symbol}
+                coinIcon={btc}
+                showBuy={true}
+                hRate={coin.quote.USD.percent_change_24h}
+                dRate={coin.quote.USD.percent_change_7d}
+                hRateIsIncrement={true}
+                price={coin.quote.USD.price}
+                marketCapValue={coin.quote.USD.market_cap}
+                volumeCryptoValue={coin.quote.USD.volume_24h}
+                volumeValue={coin.total_supply}
+                circulatingSupply={coin.circulating_supply}
+              />
+            )
+          })
+        ) : (
+          <></>
+        )}
+      </table>
+    </div>
+  </div>
+
   )
 }
 
