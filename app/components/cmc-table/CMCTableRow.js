@@ -73,7 +73,7 @@ const CMCTableRow = ({
             <CoinNameRow
               name={coinName}
               icon={coinIcon}
-              clicked={viewCoinDetails}
+              symbol={coinSymbol}
             />
           </td>
         ) : (

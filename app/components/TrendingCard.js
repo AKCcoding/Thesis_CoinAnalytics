@@ -1,13 +1,17 @@
-import React from 'react'
 import Image from 'next/image'
 import TrendingCardRow from './TrendingCardRow'
+import useAxios from '@/app/hooks/useAxios'
+import { getNftMarketCap, getTrendingCoins } from '../hooks/apiCoingecko'
 
 const styles = {
   trendingCard: `w-full p-5 py-3 pb-0 bg-[#323546] rounded-xl text-white mr-3`,
   trendingCardWrapper: `flex items-center justify-between`,
 }
 
-const TrendingCard = ({title, icon, trendingData}) => {
+
+const TrendingCard = async ({title, icon, trendingData, type}) => {
+
+  const data = type === "coins" ? await getTrendingCoins() : await getNftMarketCap()
   return (
     <div className={styles.trendingCard}>
       <div className={styles.trendingCardWrapper}>
@@ -20,19 +24,29 @@ const TrendingCard = ({title, icon, trendingData}) => {
       </div>
       <br />
 
-      {trendingData.map((item, index) => {
+      {type === "coins" ?
+        (data.map((coin, index) => {
+          return (
+            <TrendingCardRow
+              key={index}
+              number={coin.item.data.price}
+              symbol={coin.item.symbol}
+              name={coin.item.name}
+              icon={coin.item.thumb}
+              rate={coin.item.data.price}
+            />
+          )
+        })
+      ) : (data.map((nft, index) => {
         return (
           <TrendingCardRow
             key={index}
-            number={item.number}
-            symbol={item.symbol}
-            name={item.name}
-            icon={item.icon}
-            isIncrement={item.isIncrement}
-            rate={item.rate}
-          />
-        )
-      })}
+            number={nft.id}
+            symbol={nft.symbol}
+            name={nft.name}
+          />)
+      }))}
+        
     </div>
   )
 }

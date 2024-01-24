@@ -5,20 +5,21 @@ const styles = {
   trendingCardRow: `flex items-center justify-between mb-4 text-[0.93rem]`,
 }
 
-const TrendingCardRow = ({ number, icon, name, symbol, isIncrement, rate }) => {
+const TrendingCardRow = ({ number, icon, name, symbol, rate }) => {
   return (
     <div className={styles.trendingCardRow}>
-      <p className='opacity-40'>{number}</p>
+      
       <div className='w-full flex'>
         <div className='mx-5'>
           {icon && <Image alt='' src={icon} width={30} height={30} />}
         </div>
-        <p className='font-bold'>
+        <p className='font-bold truncate-'>
           {name}
           <span className='text-gray-400'> {symbol}</span>
         </p>
       </div>
-      <Rate isIncrement={isIncrement} rate={rate} />
+      <p className='opacity-40'>{'$' + parseFloat(number.replace('$', '')).toFixed(2)}</p>
+      {/* <Rate isIncrement={isIncrement} rate={rate} /> */}
     </div>
   )
 }

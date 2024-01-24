@@ -1,4 +1,16 @@
-const Home = async() => {
+import Image from "next/image";
+
+const styles = {
+  trendingCard: `w-full p-5 py-3 pb-0 bg-[#323546] rounded-xl text-white mr-3`,
+  trendingCardWrapper: `flex items-center justify-between`,
+}
+
+type Props ={
+  title: string;
+  icon?: string;
+}
+
+export default async function FearAndGreedCard({ title, icon }: Props) {
     const fngFetch = await fetch("https://api.alternative.me/fng/",{
     next: { revalidate: 3600 },
     });
@@ -19,19 +31,26 @@ const Home = async() => {
         return "Neutral";
     }
     const normalizedAngle = normalizeAngle(fng);
-
   return (
-    <div className="flex min-h-screen flex-col items-center space-y-10 p-24">
-      <h2 className="text-3xl font-medium">Fear and Greed</h2>
-      <div className="p-20 bg-white flex justify-center items-center rounded-md shadow-md">
-        <div className="relative">
+    <div className={styles.trendingCard}>
+      <div className={styles.trendingCardWrapper}>
+        <div className='flex'>
+          {icon && <Image src={icon} width={27} height={27} alt='' />}
+          &nbsp;&nbsp;
+          <p className='font-bold'>{title}</p>
+        </div>
+        
+      </div>
+      <br />
+      <div className="flex justify-center items-center rounded-md">
+      <div className="relative">
         <div 
         style={{
             transform: `rotate(${normalizedAngle}deg)`,
             transformOrigin: "93.5px 8px"
         }}
         className="h-5 w-5 rounded-full bg-gray-700 border-2 border-white absolute top-[81px] left-[-5px]" />
-        <div className="flex flex-col items-center justify-center text-gray-700 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/6">
+        <div className="flex flex-col items-center justify-center  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/6">
             <p className="text-xl font-bold">{fng}</p>
             <p className="font-light">{getFngCopy()}</p>
         </div>
@@ -63,10 +82,9 @@ const Home = async() => {
               fill="#14C784"
             />
           </svg>
-        </div>
       </div>
+      </div>
+      
     </div>
-  );
+  )
 }
-
-export default Home;

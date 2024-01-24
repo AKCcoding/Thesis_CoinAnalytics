@@ -6,6 +6,7 @@ import eth from "../assets/png/eth.png"
 import gainers from "../assets/png/gainers.png"
 import greed from "../assets/png/greed.png"
 import TrendingCard from "./TrendingCard"
+import FearAndGreedCard from "./FearAndGreedCard"
 
 const styles = {
     trendingWrapper: `mx-auto max-w-screen-2xl`,
@@ -53,9 +54,9 @@ const Trending = () => {
             </div>
             <br />
             <div className={styles.flexCenter}>
-                <TrendingCard title='Trending' icon={fire} trendingData={trendingData} />
-                <TrendingCard title='Biggest Gainers' icon={gainers} trendingData={trendingData} />
-                <TrendingCard title='Fear and Greed Index' icon={greed} trendingData={trendingData} />
+                <TrendingCard title='Trending Coins (24h)' icon={fire} trendingData={trendingData} type="coins" />
+                <TrendingCard title='Top NFTs (24h)' icon={gainers} trendingData={trendingData} type="nfts"/>
+                <FearAndGreedCard title='Fear and Greed' icon={greed} />
             </div>
         </div>
     </div>

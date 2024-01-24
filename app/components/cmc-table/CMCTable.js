@@ -26,8 +26,6 @@ const CMCTable = () => {
     }
   }, [getTopTenCoins])
 
-  console.log(coinData)
-
   useEffect(() => {
     setData()
   },[setData])
@@ -46,8 +44,8 @@ const CMCTable = () => {
                 starNum={coin.cmc_rank}
                 coinName={coin.name}
                 coinSymbol={coin.symbol}
+                //CHANGE COIN ICON NOT DYNAMIC CHECK COINGECKO API
                 coinIcon={btc}
-                showBuy={true}
                 hRate={coin.quote.USD.percent_change_24h}
                 dRate={coin.quote.USD.percent_change_7d}
                 hRateIsIncrement={true}
