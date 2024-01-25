@@ -21,9 +21,7 @@ export async function getTrendingCoins() {
 
 export async function getNftMarketCap() {
     const data = await fetchFromApi('nfts/list?order=market_cap_usd_desc');
-
     const nft = await fetchFromApi(`nfts/${data.asset_platform_id}/contract/${data.contract_address}`);
-    console.log(nft);
     // const nftData = data.map((item: any) => (
     //     {
     //         id: item.id,
@@ -36,4 +34,6 @@ export async function getNftMarketCap() {
     // ));
     return data.splice(0, 3);
 }
+
+
 

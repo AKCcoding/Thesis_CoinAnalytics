@@ -5,8 +5,11 @@ import btc from "../../assets/png/btc.png"
 import {CoinMarketContext} from "@/context/context"
 import CMCtableHeader from './CMCtableHeader'
 import CMCtableRow from './CMCtableRow'
+import axios from '@/app/hooks/apiCoingecko'
 
 const CMCTable = () => {
+
+  let { coinGeckoData } = useAxios()
 
   let { getTopTenCoins } = useContext(CoinMarketContext)
   let [coinData, setCoinData] = useState(null)

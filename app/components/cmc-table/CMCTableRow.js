@@ -44,18 +44,6 @@ const CMCTableRow = ({
     return graphImages[rndInt]
   }
 
-  const viewCoinDetails = () => {
-    router.push(
-      `/currencies/info?symbol=${coinSymbol}&coin=${coinName}&price=${price}`,
-    )
-  }
-
-  const viewPrice = () => {
-    router.push(
-      `/currencies/price?symbol=${coinSymbol}&coin=${coinName}&price=${price}`,
-    )
-  }
-
   const formatNum = num => {
     return Number(num.toFixed(2)).toLocaleString()
   }
