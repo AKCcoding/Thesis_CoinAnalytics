@@ -1,4 +1,3 @@
-import Rate from "./cmc-table/rate"
 import fire from "../assets/png/fire.png"
 import btc from "../assets/png/btc.png"
 import usdt from "../assets/png/usdt.png"
@@ -16,31 +15,6 @@ const styles = {
 
 const Trending = () => {
 
-    const trendingData = [
-        {
-            number: 1,
-            symbol: "BTC",
-            name: "Bitcoin",
-            icon: btc,
-            isIncrement: true,
-            rate: "0.12%"
-        }, {
-            number: 2,
-            symbol: "ETH",
-            name: "Ethereum",
-            icon: eth,
-            isIncrement: false,
-            rate: "0.02%"
-        }, {
-            number: 3,
-            symbol: "USDT",
-            name: "Tether",
-            icon: usdt,
-            isIncrement: true,
-            rate: "0.01%"
-        },
-    ]
-
     return <div className="text-white">
         <div className={styles.trendingWrapper}>
             <div className="flex justify-between">
@@ -49,13 +23,13 @@ const Trending = () => {
             <br />
             <div className="flex ml-1 mt-1">
                 <p>The global crypto market cap is $1.56T, a &nbsp; </p>
-                <span> <Rate isIncrement={false} rate='4.53%' /> </span>
+                <span> 4.53% </span>
                 <p> &nbsp; decrease over the last day.</p>
             </div>
             <br />
             <div className={styles.flexCenter}>
-                <TrendingCard title='Trending Coins (24h)' icon={fire} trendingData={trendingData} type="coins" />
-                <TrendingCard title='Top NFTs (24h)' icon={gainers} trendingData={trendingData} type="nfts"/>
+                <TrendingCard title='Trending Coins (24h)' icon={fire} type="coins" />
+                <TrendingCard title='Top NFTs (24h)' icon={gainers} type="nfts"/>
                 <FearAndGreedCard title='Fear and Greed' icon={greed} />
             </div>
         </div>

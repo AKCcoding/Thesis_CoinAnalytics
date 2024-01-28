@@ -1,4 +1,3 @@
-import Rate from './cmc-table/rate'
 import Image from 'next/image'
 
 const styles = {
@@ -7,8 +6,7 @@ const styles = {
 
 const TrendingCardRow = ({ number, icon, name, symbol, rate }) => {
   return (
-    <div className={styles.trendingCardRow}>
-      
+    <div className={styles.trendingCardRow}>   
       <div className='w-full flex'>
         <div className='mx-5'>
           {icon && <Image alt='' src={icon} width={30} height={30} />}

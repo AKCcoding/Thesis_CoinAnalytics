@@ -24,7 +24,7 @@ const Header = () => {
         height={30}
       />
         <div className='flex items-center'>
-          {/* <ConnectButton /> */}
+          {/* <ConnectWallet /> */}
           <div className={styles.inputContainer}>
           <Search />
             <input className={styles.input} placeholder='Search Address, Collections, NFT' />
@@ -37,7 +37,7 @@ const Header = () => {
             <div className={styles.navLink}>Collections</div>
           </div>
 
-          <div className={styles.navItem} onClick=''>
+          <div className={styles.navItem} >
             <div className={styles.navLink}>Trade</div>
           </div>
 

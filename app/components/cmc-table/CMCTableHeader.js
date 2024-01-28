@@ -1,4 +1,3 @@
-import ChevronDown from "../../assets/svg/chevronDown"
 import Info from "../../assets/svg/info"
 
 const styles = {

@@ -1,14 +1,14 @@
-import Image from 'next/image'
-import Star from '../../assets/svg/star'
-import Rate from './rate'
-import { useRouter } from 'next/router'
 import CoinNameRow from './CoinNameRow'
+import Chart from '@/app/components/cmc-table/Chart'
+import { TbCaretUpFilled } from "react-icons/tb";
+import { TbCaretDownFilled } from "react-icons/tb";
 
 const styles = {
   tableRow: `text-white border-b border-gray-800 text-[0.93rem]`,
 }
 
 const CMCTableRow = ({
+
   starNum,
   coinName,
   coinIcon,
@@ -16,8 +16,6 @@ const CMCTableRow = ({
   price = '----',
   hRate = '---',
   dRate = '---',
-  hRateIsIncrement,
-  dRateIsIncrement,
   marketCapValue = '---',
   volumeValue = '---',
   volumeCryptoValue = '---',
@@ -43,16 +41,32 @@ const CMCTableRow = ({
     const rndInt = Math.floor(Math.random() * 10) + 1
     return graphImages[rndInt]
   }
+  
+  function currencyFormat(num) {
+    let formattedNum = num.toFixed(2);
+    formattedNum = formattedNum.replace(/\.?0+$/, '');
+    formattedNum = '$' + formattedNum.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    return formattedNum;
+  }
 
-  const formatNum = num => {
-    return Number(num.toFixed(2)).toLocaleString()
+  function roundToTwoDecimalPlaces(number) {
+    return parseFloat(number.toFixed(2));
+  }
+
+  function formatCurrencyWithoutDecimals(amount) {
+    let roundedAmount = Math.round(amount);
+    return roundedAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  
+  function upperCase(symbol) {
+    return symbol.toUpperCase()
   }
 
   return (
     <tbody className={styles.tableRow}>
       <tr>
         <td>
-          <Star />
+        
         </td>
         <td>{starNum}</td>
 
@@ -68,43 +82,47 @@ const CMCTableRow = ({
           <></>
         )}
 
-        <td className='cursor-pointer' onClick={viewPrice}>
-          <p>${formatNum(price)}</p>
+        <td>
+          <p className='w-full'>$ {(price)}</p>
         </td>
         <td>
-          <Rate isIncrement={hRateIsIncrement} rate={`${formatNum(hRate)}%`} />
+          <p className={`flex gap-1 w-full text-center ${hRate < 0 ? 'text-red-400' : 'text-green-400'}`}> {hRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundToTwoDecimalPlaces(hRate)}%</p>
+
         </td>
         <td>
-          <Rate isIncrement={dRateIsIncrement} rate={`${formatNum(dRate)}%`} />
+        <p className={`flex gap-1 w-full text-center ${dRate < 0 ? 'text-red-400' : 'text-green-400'}`}> {dRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundToTwoDecimalPlaces(dRate)}%</p>
         </td>
 
         <td>
           <div>
-            <p>${formatNum(marketCapValue)}</p>
+            <p>{(marketCapValue)}</p>
           </div>
         </td>
 
         <td>
           <div>
-            <p>{formatNum(volumeValue)}</p>
+            <p>{((volumeValue))}</p>
             <p className='text-gray-400'>
-              {formatNum(volumeCryptoValue)} {coinSymbol}
+              {(volumeCryptoValue)} {upperCase(coinSymbol)}
             </p>
           </div>
         </td>
 
         <td>
           <div>
-            <p>{formatNum(circulatingSupply)}</p>
+            <p>{(circulatingSupply)} {(coinSymbol)}</p>
           </div>
         </td>
 
         <td>
-          <Image src={getRandomGraph()} width={150} height={60} alt='' />
+          {/* <Chart /> */}
+          {/* <Image src={getRandomGraph()} width={150} height={60} alt='' /> */}
         </td>
       </tr>
     </tbody>
-  )
+
+)
+  
 }
 
 export default CMCTableRow

@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import TrendingCardRow from './TrendingCardRow'
-import useAxios from '@/app/hooks/useAxios'
 import { getNftMarketCap, getTrendingCoins } from '../hooks/apiCoingecko'
 
 const styles = {
@@ -16,7 +15,7 @@ const TrendingCard = async ({title, icon, trendingData, type}) => {
     <div className={styles.trendingCard}>
       <div className={styles.trendingCardWrapper}>
         <div className='flex'>
-          {icon && <Image src={icon} width={27} height={27} alt='' />}
+          {icon && <Image src={icon} width={25} height={25} alt='' />}
           &nbsp;&nbsp;
           <p className='font-bold'>{title}</p>
         </div>
