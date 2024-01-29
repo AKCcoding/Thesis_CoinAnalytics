@@ -1,7 +1,4 @@
 import fire from "../assets/png/fire.png"
-import btc from "../assets/png/btc.png"
-import usdt from "../assets/png/usdt.png"
-import eth from "../assets/png/eth.png"
 import gainers from "../assets/png/gainers.png"
 import greed from "../assets/png/greed.png"
 import TrendingCard from "./TrendingCard"

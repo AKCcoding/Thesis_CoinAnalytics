@@ -1,14 +1,12 @@
 import Image from "next/image"
+import {upperCase} from "@/app/hooks/currencyFunctions"
 
-function upperCase(symbol) {
-    return symbol.toUpperCase()
-}
 
 const CoinNameRow = ({ name, icon, symbol }) => {
     return <div className="flex w-full">
-        <Image src={icon} alt={name} width={25} height={25} />
+        <Image src={icon} alt={name} width={30} height={30} />
         <p> &nbsp; {name} </p>
-        <p className="text-gray-400"> &nbsp; {symbol} </p>
+        <p className="text-gray-400"> &nbsp; {upperCase(symbol)} </p>
     </div>
 }
 

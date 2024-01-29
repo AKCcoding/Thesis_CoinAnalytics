@@ -31,6 +31,7 @@ const CMCTable = () => {
                 volumeCryptoValue={coin.total_volume}
                 volumeValue={coin.total_supply}
                 circulatingSupply={coin.circulating_supply}
+                sparkline={coin.sparkline_in_7d.price}
               />
             )
           })

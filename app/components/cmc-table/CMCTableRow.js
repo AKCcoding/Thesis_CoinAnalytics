@@ -1,7 +1,11 @@
 import CoinNameRow from './CoinNameRow'
-import Chart from '@/app/components/cmc-table/Chart'
-import { TbCaretUpFilled } from "react-icons/tb";
-import { TbCaretDownFilled } from "react-icons/tb";
+import { TbCaretUpFilled } from "react-icons/tb"
+import { TbCaretDownFilled } from "react-icons/tb"
+import { upperCase } from '@/app/hooks/currencyFunctions'
+import {roundTwoDecimalPlaces} from '@/app/hooks/currencyFunctions'
+import {currencyFormat} from '@/app/hooks/currencyFunctions'
+import { Sparklines, SparklinesLine } from 'react-sparklines';
+
 
 const styles = {
   tableRow: `text-white border-b border-gray-800 text-[0.93rem]`,
@@ -20,6 +24,7 @@ const CMCTableRow = ({
   volumeValue = '---',
   volumeCryptoValue = '---',
   circulatingSupply = '---',
+  sparkline,
 
 }) => {
   const graphImages = [
@@ -36,32 +41,7 @@ const CMCTableRow = ({
     'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2099.svg',
     'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/7653.svg',
   ]
-
-  const getRandomGraph = () => {
-    const rndInt = Math.floor(Math.random() * 10) + 1
-    return graphImages[rndInt]
-  }
-  
-  function currencyFormat(num) {
-    let formattedNum = num.toFixed(2);
-    formattedNum = formattedNum.replace(/\.?0+$/, '');
-    formattedNum = '$' + formattedNum.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-    return formattedNum;
-  }
-
-  function roundToTwoDecimalPlaces(number) {
-    return parseFloat(number.toFixed(2));
-  }
-
-  function formatCurrencyWithoutDecimals(amount) {
-    let roundedAmount = Math.round(amount);
-    return roundedAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-  
-  function upperCase(symbol) {
-    return symbol.toUpperCase()
-  }
-
+   
   return (
     <tbody className={styles.tableRow}>
       <tr>
@@ -86,37 +66,39 @@ const CMCTableRow = ({
           <p className='w-full'>$ {(price)}</p>
         </td>
         <td>
-          <p className={`flex gap-1 w-full text-center ${hRate < 0 ? 'text-red-400' : 'text-green-400'}`}> {hRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundToTwoDecimalPlaces(hRate)}%</p>
+          <p className={`flex gap-1 w-full text-center ${hRate < 0 ? 'text-red-400' : 'text-green-400'}`}> {hRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundTwoDecimalPlaces(hRate)}%</p>
 
         </td>
         <td>
-        <p className={`flex gap-1 w-full text-center ${dRate < 0 ? 'text-red-400' : 'text-green-400'}`}> {dRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundToTwoDecimalPlaces(dRate)}%</p>
+        <p className={`flex gap-1 w-full text-center ${dRate < 0 ? 'text-red-400' : 'text-green-400'}`}> {dRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundTwoDecimalPlaces(dRate)}%</p>
         </td>
 
         <td>
           <div>
-            <p>{(marketCapValue)}</p>
+            <p>{currencyFormat(marketCapValue)}</p>
           </div>
         </td>
 
         <td>
           <div>
-            <p>{((volumeValue))}</p>
+            <p>{currencyFormat(volumeValue)}</p>
             <p className='text-gray-400'>
-              {(volumeCryptoValue)} {upperCase(coinSymbol)}
+              {currencyFormat(volumeCryptoValue)} {upperCase(coinSymbol)}
             </p>
           </div>
         </td>
 
         <td>
           <div>
-            <p>{(circulatingSupply)} {(coinSymbol)}</p>
+            <p>{currencyFormat(circulatingSupply)} {upperCase(coinSymbol)}</p>
           </div>
         </td>
 
         <td>
-          {/* <Chart /> */}
-          {/* <Image src={getRandomGraph()} width={150} height={60} alt='' /> */}
+        <Sparklines svgWidth={140} data={sparkline}>
+          <SparklinesLine color="yellow" />
+        </Sparklines>
+        {/* <Image src={getRandomGraph()} width={150} height={60} alt='' /> */}
         </td>
       </tr>
     </tbody>
