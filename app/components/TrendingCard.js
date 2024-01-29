@@ -8,7 +8,7 @@ const styles = {
 }
 
 
-const TrendingCard = async ({title, icon, trendingData, type}) => {
+const TrendingCard = async ({title, icon, type}) => {
 
   const data = type === "coins" ? await getTrendingCoins() : await getNftMarketCap()
   return (

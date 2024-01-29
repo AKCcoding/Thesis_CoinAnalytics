@@ -66,11 +66,11 @@ const CMCTableRow = ({
           <p className='w-full'>$ {(price)}</p>
         </td>
         <td>
-          <p className={`flex gap-1 w-full text-center ${hRate < 0 ? 'text-red-400' : 'text-green-400'}`}> {hRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundTwoDecimalPlaces(hRate)}%</p>
+          <p className={`flex gap-1 w-full text-center ${hRate < 0 ? 'text-[#ff3a33]' : 'text-green-400'}`}> {hRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundTwoDecimalPlaces(hRate)}%</p>
 
         </td>
         <td>
-        <p className={`flex gap-1 w-full text-center ${dRate < 0 ? 'text-red-400' : 'text-green-400'}`}> {dRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundTwoDecimalPlaces(dRate)}%</p>
+        <p className={`flex gap-1 w-full text-center ${dRate < 0 ? 'text-[#ff3a33]' : 'text-green-400'}`}> {dRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundTwoDecimalPlaces(dRate)}%</p>
         </td>
 
         <td>
@@ -95,8 +95,8 @@ const CMCTableRow = ({
         </td>
 
         <td>
-        <Sparklines svgWidth={140} data={sparkline}>
-          <SparklinesLine color="yellow" />
+        <Sparklines svgWidth={160} height={60} data={sparkline}>
+          <SparklinesLine color= {hRate < 0 ? 'red' : '#2DFE54'}/>
         </Sparklines>
         {/* <Image src={getRandomGraph()} width={150} height={60} alt='' /> */}
         </td>

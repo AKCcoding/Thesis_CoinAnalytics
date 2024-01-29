@@ -19,7 +19,7 @@ const Trending = () => {
             </div>
             <br />
             <div className="flex ml-1 mt-1">
-                <p>The global crypto market cap is $1.56T, a &nbsp; </p>
+                <p>The global crypto market cap is $1.56 Trillion, a &nbsp; </p>
                 <span> 4.53% </span>
                 <p> &nbsp; decrease over the last day.</p>
             </div>
