@@ -20,8 +20,8 @@ export async function getTrendingCoins() {
 }
 
 export async function getNftMarketCap() {
-    const data = await fetchFromApi('nfts/list?order=market_cap_usd_desc');
-    const nft = await fetchFromApi(`nfts/${data.asset_platform_id}/contract/${data.contract_address}`);
+    // const data = await fetchFromApi('nfts/list?order=market_cap_usd_desc');
+    // const nft = await fetchFromApi(`nfts/${data.asset_platform_id}/contract/${data.contract_address}`);
     // const nftData = data.map((item: any) => (
     //     {
     //         id: item.id,
@@ -32,8 +32,6 @@ export async function getNftMarketCap() {
     //         image: nft.image.small
     //     }
     // ));
-    return data.splice(0, 3);
+    const data = await fetchFromApi('search/trending');
+    return data.nfts.splice(0, 3);
 }
-
-
-

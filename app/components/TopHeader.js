@@ -1,9 +1,7 @@
-import React from 'react'
-
-const TopHeader = () => {
+const TopHeader =() => {
 
   return (
-    <div id="header" className="border-bottom py-3 px-5">
+    <div id="header" className="border-bottom py-3 px-5 ml-20">
       <span className="d-inline-block mr-3">
         <b>Coins: </b>
         <span className="text-info">coins</span>

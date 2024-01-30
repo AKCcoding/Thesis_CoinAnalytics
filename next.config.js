@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
+        domains: [
+            "static.coingecko.com"
+        ],
         remotePatterns: [
             {
                 protocol: "https",

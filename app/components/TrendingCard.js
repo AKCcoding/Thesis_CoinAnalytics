@@ -8,7 +8,7 @@ const styles = {
 }
 
 
-const TrendingCard = async ({title, icon  , type}) => {
+const TrendingCard = async ({title, icon, type}) => {
 
   const data = type === "coins" ? await getTrendingCoins() : await getNftMarketCap()
   return (
@@ -31,7 +31,6 @@ const TrendingCard = async ({title, icon  , type}) => {
               symbol={coin.item.symbol}
               name={coin.item.name}
               icon={coin.item.large}
-              rate={coin.item.data.price}
               sparkline={coin.item.data.sparkline}
             />
           )
@@ -40,9 +39,11 @@ const TrendingCard = async ({title, icon  , type}) => {
         return (
           <TrendingCardRow
             key={index}
-            number={nft.id}
-            symbol={nft.symbol}
+            number={nft.data.floor_price}
             name={nft.name}
+            symbol={nft.symbol}
+            icon={nft.thumb}
+            sparkline={nft.data.sparkline}
           />)
       }))}
         
