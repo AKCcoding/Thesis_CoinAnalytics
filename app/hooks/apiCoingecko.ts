@@ -35,3 +35,11 @@ export async function getNftMarketCap() {
     const data = await fetchFromApi('search/trending');
     return data.nfts.splice(0, 3);
 }
+
+export async function getCoingeckoGlobalData(): Promise<any> {
+    const apiUrl: string = 'https://api.coingecko.com/api/v3/global';
+    const response: Response = await fetch(apiUrl);
+    const data: any = await response.json();
+    console.log('Coingecko Global Data:', data);
+    return data.data.splice(0, 3); 
+}

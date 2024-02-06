@@ -1,9 +1,12 @@
 function upperCase(symbol) {
     return symbol.toUpperCase()
-  }
+}
 
 function roundTwoDecimalPlaces(number) {
-  return parseFloat(number.toFixed(2));
+    if (number == null) {
+      return 0;
+    }
+    return parseFloat(number.toFixed(2));
 }
 
 function currencyFormat(amount) {

@@ -14,7 +14,6 @@ const CMCTable = () => {
     <div className='mx-auto max-w-screen-2xl'>
       <table className='w-full'>
         <CMCtableHeader />
-
         {response && response ? (response.map((coin, index) => {
             return (
               <CMCtableRow
