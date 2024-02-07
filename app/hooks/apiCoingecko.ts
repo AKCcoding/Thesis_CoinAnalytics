@@ -42,3 +42,13 @@ export async function getCoingeckoGlobalData(): Promise<any> {
     const data: any = await response.json();
     return data;
 }
+export async function getGasFee(): Promise<any> {
+    const apiUrl: string = 'https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=1YFCZB8YSYNTWPS4DCRN91G2P3VHCGZ1GE';
+    const response: Response = await fetch(apiUrl);
+    const data: any = await response.json();
+    return data;
+}
+
+
+
+

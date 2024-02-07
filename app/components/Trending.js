@@ -8,7 +8,6 @@ import { getCoingeckoGlobalData } from '@/app/hooks/apiCoingecko';
 import { roundTwoDecimalPlaces } from '../hooks/currencyFunctions';
 import { TbCaretUpFilled } from "react-icons/tb"
 import { TbCaretDownFilled } from "react-icons/tb"
-import { currencyFormat } from '../hooks/currencyFunctions';
 
 const styles = {
   trendingWrapper: `mx-auto max-w-screen-2xl`,
@@ -20,9 +19,9 @@ const Trending = async () => {
   try {
     const data = await getCoingeckoGlobalData();
     const percentageChange = data.data.market_cap_change_percentage_24h_usd;
-    const totalMarketCapObject = data.data.total_market_cap;
-    const totalMarketCapSum = Object.values(totalMarketCapObject).reduce((acc, value) => acc + value, 0);
-    console.log(data);
+    const totalMarketCapUSD = data.data.total_market_cap.usd;
+    const formattedMarketCapUSD = (totalMarketCapUSD / 1e12).toFixed(3);
+
     return (
       <div className="text-white">
         <div className={styles.trendingWrapper}>
@@ -31,7 +30,7 @@ const Trending = async () => {
           </div>
           <br />
           <div className="flex ml-2 mt-1">
-            <p>The Global Crypto Market Cap is ${currencyFormat(totalMarketCapSum.toFixed(2))}, a &nbsp; </p>
+            <p>The Global Crypto Market Cap is ${(formattedMarketCapUSD)} Trillion, a &nbsp; </p>
             <span className={`flex gap-0 ${percentageChange < 0 ? 'text-[#ff3a33]' : 'text-green-400'}`}> {percentageChange < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />}{roundTwoDecimalPlaces(percentageChange)} %</span>
             <p> &nbsp; decrease over the last day.</p>
           </div>
