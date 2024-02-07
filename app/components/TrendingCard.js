@@ -7,7 +7,6 @@ const styles = {
   trendingCardWrapper: `flex items-center justify-between`,
 }
 
-
 const TrendingCard = async ({title, icon, type}) => {
 
   const data = type === "coins" ? await getTrendingCoins() : await getNftMarketCap()

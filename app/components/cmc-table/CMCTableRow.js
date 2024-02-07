@@ -67,7 +67,6 @@ const CMCTableRow = ({
         </td>
         <td>
           <p className={`flex gap-1 w-full text-center ${hRate < 0 ? 'text-[#ff3a33]' : 'text-green-400'}`}> {hRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundTwoDecimalPlaces(hRate)}%</p>
-
         </td>
         <td>
         <p className={`flex gap-1 w-full text-center ${dRate < 0 ? 'text-[#ff3a33]' : 'text-green-400'}`}> {dRate < 0 ? <TbCaretDownFilled /> : <TbCaretUpFilled />} {roundTwoDecimalPlaces(dRate)}%</p>
