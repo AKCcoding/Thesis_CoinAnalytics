@@ -12,7 +12,7 @@ type Props ={
 
 export default async function FearAndGreedCard({ title, icon }: Props) {
     const fngFetch = await fetch("https://api.alternative.me/fng/",{
-    next: { revalidate: 3600 },
+    next: { revalidate: 300 },
     });
     const fngData = await fngFetch.json();
     const fng = fngData.data[0].value;
@@ -35,22 +35,22 @@ export default async function FearAndGreedCard({ title, icon }: Props) {
     <div className={styles.trendingCard}>
       <div className={styles.trendingCardWrapper}>
         <div className='flex'>
-          {icon && <Image src={icon} width={27} height={27} alt='' />}
+          {icon && <Image src={icon} width={30} height={30} alt='' />}
           &nbsp;&nbsp;
           <p className='font-bold'>{title}</p>
         </div>
-        
       </div>
       <br />
-      <div className="flex justify-center items-center rounded-md">
-      <div className="relative">
+      
+      <div className="flex justify-center items-center rounded-md py-12">
+      <div className="relative mb-8">
         <div 
         style={{
             transform: `rotate(${normalizedAngle}deg)`,
             transformOrigin: "93.5px 8px"
         }}
         className="h-5 w-5 rounded-full bg-gray-700 border-2 border-white absolute top-[81px] left-[-5px]" />
-        <div className="flex flex-col items-center justify-center  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/6">
+        <div className="flex flex-col items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/6">
             <p className="text-xl font-bold">{fng}</p>
             <p className="font-light">{getFngCopy()}</p>
         </div>

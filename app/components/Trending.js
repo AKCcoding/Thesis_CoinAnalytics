@@ -1,7 +1,7 @@
 import React from 'react';
-import fire from "../assets/png/fire.png";
-import gainers from "../assets/png/gainers.png";
-import greed from "../assets/png/greed.png";
+import fire from "../assets/gif/fire.gif";
+import up from "../assets/gif/up.gif";
+import greed from "../assets/gif/greed.gif";
 import TrendingCard from "./TrendingCard";
 import FearAndGreedCard from "./FearAndGreedCard";
 import { getCoingeckoGlobalData } from '@/app/hooks/apiCoingecko';
@@ -37,8 +37,8 @@ const Trending = async () => {
           <br />
           <div className={styles.flexCenter}>
             <TrendingCard title='Trending Coins (24h)' icon={fire} type="coins" />
-            <TrendingCard title='Top NFTs (24h)' icon={gainers} type="nfts"/>
-            <FearAndGreedCard title='Fear and Greed' icon={greed}/>
+            <TrendingCard title='Top NFTs (24h)' icon={up} type="nfts"/>
+            <FearAndGreedCard title='Fear and Greed Index' icon={greed} />
           </div>
         </div>
       </div>

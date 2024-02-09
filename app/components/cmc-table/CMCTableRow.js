@@ -2,7 +2,7 @@ import CoinNameRow from './CoinNameRow'
 import { TbCaretUpFilled } from "react-icons/tb"
 import { TbCaretDownFilled } from "react-icons/tb"
 import { upperCase } from '@/app/hooks/currencyFunctions'
-import {roundTwoDecimalPlaces} from '@/app/hooks/currencyFunctions'
+import { roundTwoDecimalPlaces } from '@/app/hooks/currencyFunctions'
 import {currencyFormat} from '@/app/hooks/currencyFunctions'
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 
@@ -94,10 +94,9 @@ const CMCTableRow = ({
         </td>
 
         <td>
-        <Sparklines svgWidth={160} height={60} data={sparkline}>
+        <Sparklines svgWidth={160} height={60} data={sparkline} quality={100}>
           <SparklinesLine color= {hRate < 0 ? 'red' : '#2DFE54'}/>
         </Sparklines>
-        {/* <Image src={getRandomGraph()} width={150} height={60} alt='' /> */}
         </td>
       </tr>
     </tbody>
