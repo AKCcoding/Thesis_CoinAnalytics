@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import TrendingCardRow from './TrendingCardRow'
-import { getNftMarketCap, getTrendingCoins } from '../hooks/apiCoingecko'
+import { getNftMarketCap, getTrendingCoins } from '../api/apiCoingecko'
 
 const styles = {
   trendingCard: `w-full p-5 py-5 pb-5 bg-[#323546] rounded-xl text-white mr-3`,

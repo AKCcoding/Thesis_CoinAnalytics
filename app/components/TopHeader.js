@@ -1,4 +1,4 @@
-import { getCoingeckoGlobalData, getGasFee } from '@/app/hooks/apiCoingecko';
+import { getCoingeckoGlobalData, getGasFee } from '@/app/api/apiCoingecko';
 import { FaEthereum } from "react-icons/fa";
 
 const TopHeader = async () => {

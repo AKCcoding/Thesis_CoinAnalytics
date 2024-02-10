@@ -4,7 +4,7 @@ import up from "../assets/gif/up.gif";
 import greed from "../assets/gif/greed.gif";
 import TrendingCard from "./TrendingCard";
 import FearAndGreedCard from "./FearAndGreedCard";
-import { getCoingeckoGlobalData } from '@/app/hooks/apiCoingecko';
+import { getCoingeckoGlobalData } from '@/app/api/apiCoingecko';
 import { roundTwoDecimalPlaces } from '../hooks/currencyFunctions';
 import { TbCaretUpFilled } from "react-icons/tb"
 import { TbCaretDownFilled } from "react-icons/tb"
