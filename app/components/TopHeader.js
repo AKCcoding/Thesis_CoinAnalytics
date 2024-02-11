@@ -1,5 +1,11 @@
 import { getCoingeckoGlobalData, getGasFee } from '@/app/api/apiCoingecko';
 import { FaEthereum } from "react-icons/fa";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 const TopHeader = async () => {
 
@@ -53,7 +59,17 @@ const TopHeader = async () => {
         <i className="d-inline-block mr-1" />
         <span>Gas Fee:</span>
         </b>
-        {gasData.result.ProposeGasPrice} GWEI
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>{gasData.result.ProposeGasPrice} GWEI</TooltipTrigger>
+            <TooltipContent side='bottom'>
+            <p>Fast: {gasData.result.FastGasPrice} GWEI</p>
+            <p>Standard: {gasData.result.ProposeGasPrice} GWEI</p>
+            <p>Safe: {gasData.result.SafeGasPrice} GWEI</p>
+            <p>Base Fee: {gasData.result.suggestBaseFee}</p>
+            </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
       </span>
       
     </div>
